@@ -17,3 +17,16 @@ exports.tampilDataSiswa = function(req, res) {
         }
     });
 };
+
+//tampil berdasarkan id
+exports.tampilDataSiswaId = function(req, r) {
+    let id = req.params.id;
+    connection.query("SELECT * FROM mahasiswa WHERE id_mahasiswa = ?", [id],
+    function(error, rows, fileds) {
+        if(error) {
+            console.log(error);
+        }else{
+            response.ok(rows, r);
+        }
+    });
+};
